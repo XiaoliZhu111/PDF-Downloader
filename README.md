@@ -1,2 +1,2 @@
 # PDF-Downloader
-Batch download all pdfs in the websites
+Batch download all pdfs on the websites
