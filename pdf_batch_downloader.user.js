@@ -95,43 +95,6 @@
         document.body.appendChild(button);
     }
 
-    // Create and add the exclude button
-    function addExcludeButton() {
-        const button = document.createElement('button');
-        button.innerHTML = 'Exclude This Site';
-        button.style.cssText = `
-            position: fixed;
-            top: 70px;
-            right: 20px;
-            z-index: 9999;
-            padding: 10px 20px;
-            background-color: #f44336;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        `;
-
-        button.addEventListener('mouseover', () => {
-            button.style.backgroundColor = '#da190b';
-        });
-
-        button.addEventListener('mouseout', () => {
-            button.style.backgroundColor = '#f44336';
-        });
-
-        button.addEventListener('click', () => {
-            excludeCurrentDomain();
-            button.innerHTML = 'Site Excluded';
-            button.disabled = true;
-            button.style.backgroundColor = '#999';
-        });
-
-        document.body.appendChild(button);
-    }
-
     // Main initialization
     function init() {
         console.log('Init function running');
@@ -139,7 +102,7 @@
         if (!isDomainExcluded()) {
             console.log('Adding buttons');
             addDownloadButton();
-            addExcludeButton();
+            
         }
     }
 
