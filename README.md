@@ -13,7 +13,6 @@ This is a Tampermonkey user script designed to simplify the process of downloadi
 Before installing the script, you need two things:
 1. A modern web browser like [Google Chrome](https://www.google.com/chrome/), [Mozilla Firefox](https://www.mozilla.org/firefox/new/), or [Microsoft Edge](https://www.microsoft.com/edge).
 2. The **Tampermonkey** browser extension.
-3. [Get Tampermonkey for Safari](https://apps.apple.com/app/apple-store/id1482490089)
 
 ## Installation
 
