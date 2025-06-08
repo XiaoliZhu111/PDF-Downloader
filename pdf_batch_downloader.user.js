@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Batch download PDFs from Value Line
-// @author       Your name
+// @author       Lilian Zhu
 // @match        *://*/*
 // @grant        GM_setValue
 // @grant        GM_getValue
