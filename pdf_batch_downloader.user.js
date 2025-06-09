@@ -5,8 +5,7 @@
 // @description  Batch download PDFs from sites like Value Line and Giverny Capital
 // @author       Lilian Zhu
 // @match        *://*/*
-// @grant        GM_setValue
-// @grant        GM_getValue
+// @icon         https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/400px-PDF_file_icon.svg.png
 // @grant        GM_addStyle
 // ==/UserScript==
 
@@ -16,24 +15,6 @@
     console.log('PDF Batch Downloader script is running');
     console.log('Current URL:', window.location.href);
     console.log('Found PDF links:', (document.querySelectorAll('a.stock-action[href*="/File/Handler"]').length + document.querySelectorAll('a.gate-button.button').length));
-
-    // Storage key for excluded domains
-    const EXCLUDED_DOMAINS_KEY = 'pdfDownloaderExcludedDomains';
-
-    // Check if current domain is excluded
-    function isDomainExcluded() {
-        const excludedDomains = GM_getValue(EXCLUDED_DOMAINS_KEY, []);
-        return excludedDomains.includes(window.location.hostname);
-    }
-
-    // Add domain to excluded list
-    function excludeCurrentDomain() {
-        const excludedDomains = GM_getValue(EXCLUDED_DOMAINS_KEY, []);
-        if (!excludedDomains.includes(window.location.hostname)) {
-            excludedDomains.push(window.location.hostname);
-            GM_setValue(EXCLUDED_DOMAINS_KEY, excludedDomains);
-        }
-    }
 
     // Find all PDF links on the page
     function findPdfLinks() {
@@ -98,12 +79,7 @@
     // Main initialization
     function init() {
         console.log('Init function running');
-        console.log('Is domain excluded:', isDomainExcluded());
-        if (!isDomainExcluded()) {
-            console.log('Adding buttons');
-            addDownloadButton();
-            
-        }
+        addDownloadButton();
     }
 
     // Run the script
