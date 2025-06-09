@@ -14,11 +14,11 @@
 
     console.log('PDF Batch Downloader script is running');
     console.log('Current URL:', window.location.href);
-    console.log('Found PDF links:', (document.querySelectorAll('a.stock-action[href*="/File/Handler"]').length + document.querySelectorAll('a.gate-button.button').length));
+    console.log('Found PDF links:', (document.querySelectorAll('a.stock-action[href*="/File/Handler"], a[href$=".pdf"]').length));
 
     // Find all PDF links on the page
     function findPdfLinks() {
-        return Array.from(document.querySelectorAll('a.stock-action[href*="/File/Handler"], a.gate-button.button'));
+        return Array.from(document.querySelectorAll('a.stock-action[href*="/File/Handler"], a[href$=".pdf"]'));
     }
 
     // Create and add the download button
@@ -58,8 +58,15 @@
             // Download each PDF with a delay to avoid browser blocking
             pdfLinks.forEach((link, index) => {
                 setTimeout(() => {
-                    // Get a clean filename from the link's title attribute
-                    const fileName = (link.title ? link.title.replace(/[^a-z0-9\\s.-]/gi, '_') : 'report') + '.pdf';
+                    // Get a clean filename from the link's title attribute or URL
+                    let fileName;
+                    if (link.href.toLowerCase().endsWith('.pdf')) {
+                        const url = new URL(link.href);
+                        const pathParts = url.pathname.split('/');
+                        fileName = pathParts[pathParts.length - 1].replace(/[^a-z0-9\s.-]/gi, '_');
+                    } else {
+                        fileName = (link.title ? link.title.replace(/[^a-z0-9\s.-]/gi, '_') : 'report') + '.pdf';
+                    }
 
                     // Create a temporary link element to trigger the download
                     const tempLink = document.createElement('a');
