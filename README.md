@@ -13,7 +13,10 @@ This is a Tampermonkey user script designed to simplify the process of downloadi
 Before installing the script, you need two things:
 1. A modern web browser like [Google Chrome](https://www.google.com/chrome/), [Mozilla Firefox](https://www.mozilla.org/firefox/new/), or [Microsoft Edge](https://www.microsoft.com/edge).
 2. The **Tampermonkey** browser extension.
+<<<<<<< HEAD
 3. [Get Tampermonkey for Safari](https://apps.apple.com/app/apple-store/id1482490089)
+=======
+>>>>>>> 06d311a26e80b7201538f1a52d1c250ab815c5fb
 
 ## Installation
 
@@ -114,4 +117,8 @@ The script waits for 1 second (1000 milliseconds) between each download. If your
 
 ---
 
+<<<<<<< HEAD
 *Disclaimer: Please use this script responsibly and in accordance with the terms of service of the websites you visit.* 
+=======
+*Disclaimer: Please use this script responsibly and in accordance with the terms of service of the websites you visit.* 
+>>>>>>> 06d311a26e80b7201538f1a52d1c250ab815c5fb
